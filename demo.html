@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sliding Image Animation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+
+        .slideshow-container {
+            position: relative;
+            max-width: 100%;
+            height: 100vh;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        .slide {
+            display: none;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            animation: slideAnimation 1.5s forwards;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @keyframes slideAnimation {
+            from { transform: translateX(100%); }
+            to { transform: translateX(0); }
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            margin-right: -15px;
+            margin-left: -15px;
+        }
+
+        .col-md-6, .col-lg-4 {
+            position: relative;
+            width: 100%;
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+
+        .col-md-6 {
+            flex: 0 0 50%;
+            max-width: 50%;
+        }
+
+        .details1 {
+            padding: 0;
+            margin: 0;
+        }
+
+        .details1 h2, .details1 p {
+            margin: 0;
+            padding: 0;
+        }
+
+        .whatsapp-icon {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25d366;
+            color: white;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            text-decoration: none;
+        }
+
+        .whatsapp-icon i {
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div class="slideshow-container">
+        <div class="slide">
+            <img src="image1.jpg" alt="Image 1">
+        </div>
+        <div class="slide">
+            <img src="image2.jpg" alt="Image 2">
+        </div>
+        <div class="slide">
+            <img src="image3.jpg" alt="Image 3">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <img src="assets/img/speakers/1.jpg" alt="Speaker 1" class="img-fluid">
+        </div>
+
+        <div class="col-md-6">
+            <div class="details1">
+                <h2>North India Tour</h2>
+                <p>The North India Yatra, also known as Char Dham Yatra Uttarakhand, is a sacred pilgrimage that covers four significant Hindu shrines located in the Himalayas of Uttarakhand, India. These holy sites are Yamunotri, Gangotri, Kedarnath, and Badrinath. Embarking on this spiritual journey offers not only divine blessings but also a chance to witness the breathtaking beauty of the Himalayas.</p>
+                <p>The 4 Dham Yatra holds immense spiritual significance in Hinduism. It is believed that undertaking this pilgrimage cleanses one’s soul of sins and paves the way to moksha (liberation). Each of the four Dhams is associated with different deities and has its unique religious importance, making the yatra a comprehensive spiritual journey. Embarking on the 4 Dham Yatra is more than just a journey; it's an opportunity for spiritual rejuvenation and a deeper connection with the divine. Whether you are seeking spiritual solace or an adventurous trek through the Himalayas, this sacred pilgrimage promises an unforgettable experience.</p>
+                <p>North India is a treasure trove of spiritual, cultural, and natural beauty. The Darshan Yatra in this region offers a blend of sacred temples, historical monuments, and breathtaking landscapes. Here are some of the most beautiful and important places to include in your North India Darshan Yatra:</p>
+            </div>
+        </div>
+    </div>
+
+    <a href="https://wa.me/1234567890" class="whatsapp-icon" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    
+    <script>
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            let i;
+            let slides = document.getElementsByClassName("slide");
+            
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            
+            slideIndex++;
+            
+            if (slideIndex > slides.length) {
+                slideIndex = 1;
+            }
+            
+            slides[slideIndex - 1].style.display = "block";
+            setTimeout(showSlides, 3000); // Change image every 3 seconds
+        }
+    </script>
+</body>
+</html>
